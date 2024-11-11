@@ -39,7 +39,7 @@ const IMG_PADDING = 12;
 const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
   const color = useContext(ColorContext);
   const backgroundImage = useMotionTemplate`
-  linear-gradient(to bottom, ${color} -15%, #020617 85%, ${color})
+  linear-gradient(to bottom, ${color} 0%, #020617 50%, ${color})
 `;
 
   return (
@@ -51,7 +51,7 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
       }}
     >
       <div className='relative h-[150vh] pt-4'>
-        <StickyImage imgUrl={imgUrl} padding={IMG_PADDING} />
+        <StickyImage background={`url(${imgUrl})`} padding={IMG_PADDING} />
         <OverlayCopy>
           <p className='mb-2 text-center text-xl md:mb-4 md:text-3xl'>
             {subheading}

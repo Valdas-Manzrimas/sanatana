@@ -2,7 +2,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-const StickyImage = ({ imgUrl, padding }) => {
+const StickyImage = ({ background, padding }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -15,7 +15,7 @@ const StickyImage = ({ imgUrl, padding }) => {
   return (
     <motion.div
       style={{
-        backgroundImage: `url(${imgUrl})`,
+        background,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: `calc(100vh - ${padding * 2}px)`,
@@ -23,7 +23,7 @@ const StickyImage = ({ imgUrl, padding }) => {
         scale,
       }}
       ref={targetRef}
-      className='sticky z-0 overflow-hidden rounded-3xl'
+      className={`sticky z-0 overflow-hidden rounded-3xl`}
     >
       <motion.div
         className='absolute inset-0 bg-neutral-950/70'
